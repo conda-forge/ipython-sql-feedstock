@@ -42,7 +42,8 @@ test:
 about:
   home: https://pypi.python.org/pypi/ipython-sql
   license: MIT
-  license_file: LICENSE
+  #TODO catherinedevlin/ipython-sql#58 
+  #license_file: <LICENSE>
   summary: 'RDBMS access via IPython'
 
 extra:
