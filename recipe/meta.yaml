@@ -7,7 +7,7 @@ package:
 
 source:
   fn: ipython-sql-{{ version }}.tar.gz
-  url: https://pypi.python.org/packages/source/i/ipython-sql/ipython-sql-{{ version }}.tar.gz
+  url: https://pypi.python.org/packages/4b/4d/d62e65d8f501a305f45ff0b5a317163b742ea0c61e01ae85595ef5d1a54f/ipython-sql-{{ version }}.tar.gz
   md5: {{ md5 }}
 
 build:
