@@ -1,14 +1,15 @@
+{% set name = "ipython-sql" %}
 {% set version = "0.3.8" %}
-{% set md5 = "89080b1bd4f383006a07164673af5d0d" %}
+{% set sha256= "62f3689f4e2b4071eb9fd743386f358bfca8f76c942d50abf306914580fc149d" %}
 
 package:
-  name: ipython-sql
+  name: {{ name }}
   version: {{ version }}
 
 source:
   fn: ipython-sql-{{ version }}.tar.gz
-  url: https://pypi.python.org/packages/4b/4d/d62e65d8f501a305f45ff0b5a317163b742ea0c61e01ae85595ef5d1a54f/ipython-sql-{{ version }}.tar.gz
-  md5: {{ md5 }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
   number: 0
