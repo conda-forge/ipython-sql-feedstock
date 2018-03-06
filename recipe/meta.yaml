@@ -1,17 +1,18 @@
-{% set version = "0.3.6" %}
-{% set md5 = "d4feb00ac5806d7640b2545a43974766" %}
+{% set name = "ipython-sql" %}
+{% set version = "0.3.8" %}
+{% set sha256= "62f3689f4e2b4071eb9fd743386f358bfca8f76c942d50abf306914580fc149d" %}
 
 package:
-  name: ipython-sql
+  name: {{ name }}
   version: {{ version }}
 
 source:
   fn: ipython-sql-{{ version }}.tar.gz
-  url: https://pypi.python.org/packages/source/i/ipython-sql/ipython-sql-{{ version }}.tar.gz
-  md5: {{ md5 }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
