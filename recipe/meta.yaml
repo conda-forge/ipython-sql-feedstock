@@ -1,6 +1,6 @@
 {% set name = "ipython-sql" %}
-{% set version = "0.3.8" %}
-{% set sha256= "62f3689f4e2b4071eb9fd743386f358bfca8f76c942d50abf306914580fc149d" %}
+{% set version = "0.3.9" %}
+{% set sha256= "7187f6371f38b89d8fb63c2c7c4233d9000fb53b460dae79e4a359df366cc3ed" %}
 
 package:
   name: {{ name }}
@@ -10,21 +10,19 @@ source:
   fn: ipython-sql-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    # Use io.open in py27
+    - github__sodre__ipython-sql__py27-setup.patch   # [py27]
 
 build:
   number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: 
+    - python -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
     - python
-    - setuptools
-    - prettytable
-    - ipython >=1.0  # [not win]
-    - ipython >=1.0  # [win and not py35]
-    - ipython >=1.0,<5  # [win and py35]
-    - sqlparse
-    - six
+    - pip
 
   run:
     - python
@@ -32,6 +30,7 @@ requirements:
     - ipython >=1.0  # [not win]
     - ipython >=1.0  # [win and not py35]
     - ipython >=1.0,<5  # [win and py35]
+    - ipython_genutils >=0.1.0
     - sqlalchemy >=0.6.7
     - sqlparse
     - six
@@ -43,9 +42,13 @@ test:
 about:
   home: https://pypi.python.org/pypi/ipython-sql
   license: MIT
-  #TODO catherinedevlin/ipython-sql#58 
-  #license_file: <LICENSE>
+  license_file: LICENSE
   summary: 'RDBMS access via IPython'
+
+  description: 'ipython-sql introduces a %sql (or %%sql) magic to your notebook allowing you to
+    connect to a database, using SQLAlchemy connect strings, then issue SQL commands within 
+    IPython or IPython Notebook.'
+  dev_url: https://github.com/catherinedevlin/ipython-sql
 
 extra:
   recipe-maintainers:

@@ -1,0 +1,14 @@
+diff --git a/setup.py b/setup.py
+index 8a8bed5..aae6fd1 100644
+--- a/setup.py
++++ b/setup.py
+@@ -1,5 +1,9 @@
+ from setuptools import setup, find_packages
+ import os
++import sys
++
++if sys.version_info[0] == 2:
++    from io import open
+ 
+ here = os.path.abspath(os.path.dirname(__file__))
+ README = open(os.path.join(here, 'README.rst'), encoding='utf-8').read()
