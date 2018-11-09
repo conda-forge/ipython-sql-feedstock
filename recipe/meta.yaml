@@ -1,6 +1,5 @@
 {% set name = "ipython-sql" %}
 {% set version = "0.3.9" %}
-{% set sha256= "7187f6371f38b89d8fb63c2c7c4233d9000fb53b460dae79e4a359df366cc3ed" %}
 
 package:
   name: {{ name }}
@@ -9,7 +8,7 @@ package:
 source:
   fn: ipython-sql-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 7187f6371f38b89d8fb63c2c7c4233d9000fb53b460dae79e4a359df366cc3ed
   patches:
     # Use io.open in py27
     - github__sodre__ipython-sql__py27-setup.patch   # [py27]
