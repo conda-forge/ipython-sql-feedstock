@@ -14,7 +14,7 @@ source:
     - github__sodre__ipython-sql__py27-setup.patch   # [py27]
 
 build:
-  number: 1001
+  number: 1002
   script: 
     - python -m pip install --no-deps --ignore-installed .
 
