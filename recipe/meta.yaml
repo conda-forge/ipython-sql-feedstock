@@ -14,12 +14,12 @@ source:
     - github__sodre__ipython-sql__py27-setup.patch   # [py27]
 
 build:
-  number: 1002
+  number: 1003
   script: 
     - python -m pip install --no-deps --ignore-installed .
 
 requirements:
-  build:
+  host:
     - python
     - pip
 
