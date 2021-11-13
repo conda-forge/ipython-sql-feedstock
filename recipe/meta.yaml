@@ -9,26 +9,21 @@ source:
   fn: ipython-sql-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 7187f6371f38b89d8fb63c2c7c4233d9000fb53b460dae79e4a359df366cc3ed
-  patches:
-    # Use io.open in py27
-    - github__sodre__ipython-sql__py27-setup.patch   # [py27]
-
+  
 build:
-  number: 1003
+  number: 1004
+  noarch: python
   script: 
     - python -m pip install --no-deps --ignore-installed .
 
 requirements:
   host:
-    - python
+    - python >=3.6
     - pip
-
   run:
-    - python
+    - python >=3.6
     - prettytable
-    - ipython >=1.0  # [not win]
-    - ipython >=1.0  # [win and not py35]
-    - ipython >=1.0,<5  # [win and py35]
+    - ipython >=1.0
     - ipython_genutils >=0.1.0
     - sqlalchemy >=0.6.7
     - sqlparse
