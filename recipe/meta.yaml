@@ -1,5 +1,5 @@
 {% set name = "ipython-sql" %}
-{% set version = "0.3.9" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name }}
@@ -8,12 +8,12 @@ package:
 source:
   fn: ipython-sql-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7187f6371f38b89d8fb63c2c7c4233d9000fb53b460dae79e4a359df366cc3ed
-  
+  sha256: 3db3ce7f9a95dfaf43876fa80b16bdbb9a04de0ba12042cab13e9f596fcffdbe
+
 build:
-  number: 1004
+  number: 0
   noarch: python
-  script: 
+  script:
     - python -m pip install --no-deps --ignore-installed .
 
 requirements:
@@ -37,11 +37,9 @@ about:
   home: https://pypi.python.org/pypi/ipython-sql
   license: MIT
   license_file: LICENSE
-  summary: 'RDBMS access via IPython'
+  summary: RDBMS access via IPython
 
-  description: 'ipython-sql introduces a %sql (or %%sql) magic to your notebook allowing you to
-    connect to a database, using SQLAlchemy connect strings, then issue SQL commands within 
-    IPython or IPython Notebook.'
+  description: ipython-sql introduces a %sql (or %%sql) magic to your notebook allowing you to connect to a database, using SQLAlchemy connect strings, then issue SQL commands within IPython or IPython Notebook.
   dev_url: https://github.com/catherinedevlin/ipython-sql
 
 extra:
