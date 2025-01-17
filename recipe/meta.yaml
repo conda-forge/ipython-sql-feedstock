@@ -7,21 +7,21 @@ package:
 
 source:
   fn: ipython-sql-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 7187f6371f38b89d8fb63c2c7c4233d9000fb53b460dae79e4a359df366cc3ed
   
 build:
-  number: 1004
+  number: 1005
   noarch: python
   script: 
     - python -m pip install --no-deps --ignore-installed .
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - prettytable
     - ipython >=1.0
     - ipython_genutils >=0.1.0
@@ -30,6 +30,8 @@ requirements:
     - six
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - sql
 
